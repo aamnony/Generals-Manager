@@ -1,24 +1,14 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
-using System.Globalization;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Reflection;
 using System.Windows;
-using System.Windows.Data;
 
-namespace Generals_Settings
+namespace Generals_Manager
 {
-    /*
-    AntiAliasing = 1
-    DrawScrollAnchor = yes
-    MoveScrollAnchor = yes
-    UnlockMaxFPS = yes
-    UseCamera = yes
-    SaveCamera = yes
-    */
-
-
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
@@ -39,14 +29,6 @@ namespace Generals_Settings
         /// </summary>
         private const string ZERO_HOUR_FOLDER = "Command and Conquer Generals Zero Hour Data";
 
-        public string Version
-        {
-            get
-            {
-                return string.Format("Version {0} (Game Version 1.04)", Assembly.GetEntryAssembly().GetName().Version.ToString(2));
-            }
-        }
-
         public MainWindow()
         {
             InitializeComponent();
@@ -57,6 +39,14 @@ namespace Generals_Settings
             string fileName = string.Format("{0}\\{1}", folderName, OPTIONS_FILE_NAME);
             DataContext = LoadINIFile(fileName);
             FillComboBoxes();
+        }
+
+        public string Version
+        {
+            get
+            {
+                return string.Format("Version {0} (Game Version 1.04)", Assembly.GetEntryAssembly().GetName().Version.ToString(2));
+            }
         }
 
         private static Dictionary<string, string> LoadINIFile(string path)
@@ -111,7 +101,6 @@ namespace Generals_Settings
         private void btnDefaults_Click(object sender, RoutedEventArgs e)
         {
             sliderBrightness.Value = 50;
-            chkLanguageFilter.IsChecked = true;
             sliderMusic.Value = 55;
             cmbResolution.SelectedItem = "800 600";
             chkRetaliation.IsChecked = true;
@@ -122,6 +111,14 @@ namespace Generals_Settings
             chkAlternateMouseSetup.IsChecked = false;
             chkDoubleClickGuard.IsChecked = false;
             sliderVoice.Value = 70;
+
+            /*
+            DrawScrollAnchor = yes
+            MoveScrollAnchor = yes
+            UnlockMaxFPS = yes
+            UseCamera = yes
+            SaveCamera = yes
+            */
             /* Advanced display options seem to not be included in defaults.
             ["AntiAliasing"] = "1";
             ["BuildingOcclusion"] = "yes";
@@ -137,6 +134,45 @@ namespace Generals_Settings
             ["UseShadowDecals"] = "yes";
             ["UseShadowVolumes"] = "yes";
             */
+        }
+
+        private void btnGame_Click(object sender, RoutedEventArgs e)
+        {
+            var zerohour = Registry.LocalMachine.OpenSubKey("SOFTWARE\\" +
+                (Environment.Is64BitOperatingSystem ? "Wow6432Node\\" : "") +
+                "Electronic Arts\\EA Games\\Command and Conquer Generals Zero Hour");
+
+            var installPath = zerohour.GetValue("InstallPath").ToString();
+            try
+            {
+                Process.Start(installPath + "generals.exe");
+            }
+            catch (System.ComponentModel.Win32Exception ex)
+            {
+                // https://support.microsoft.com/en-us/kb/186551
+                if (ex.NativeErrorCode != 1223)
+                {
+                    // We ignore the exception if the operation was cancelled by the user.
+                    // The game needs administrator privileges to run,
+                    // and if the user denies them, it's not really the problem of this program.
+                    throw ex;
+                }
+            }
+        }
+
+        private void btnMaps_Click(object sender, RoutedEventArgs e)
+        {
+            new MapsWindow().Show();
+        }
+
+        private void btnTunngle_Click(object sender, RoutedEventArgs e)
+        {
+            var tunngle = Registry.LocalMachine.OpenSubKey("SOFTWARE\\" +
+                (Environment.Is64BitOperatingSystem ? "Wow6432Node\\" : "") +
+                "Tunngle.net\\Tunngle");
+
+            var installPath = tunngle.GetValue("Directory").ToString();
+            Process.Start(installPath + "\\Tunngle.exe");
         }
 
         private void FillComboBoxes()

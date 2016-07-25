@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generals Settings", "Generals Settings\Generals Settings.csproj", "{9939486E-955C-476B-B3D4-A852EE0696F5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generals Manager", "Generals Settings\Generals Manager.csproj", "{9939486E-955C-476B-B3D4-A852EE0696F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

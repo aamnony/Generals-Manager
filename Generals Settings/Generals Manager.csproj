@@ -7,8 +7,8 @@
     <ProjectGuid>{9939486E-955C-476B-B3D4-A852EE0696F5}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Generals_Settings</RootNamespace>
-    <AssemblyName>Generals Settings</AssemblyName>
+    <RootNamespace>Generals_Manager</RootNamespace>
+    <AssemblyName>Generals Manager</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -53,9 +53,12 @@
     <ApplicationIcon>Images\ZH.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -67,7 +70,6 @@
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -77,8 +79,16 @@
     <Compile Include="AdvancedDisplayWindow.xaml.cs">
       <DependentUpon>AdvancedDisplayWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CheckBoxListItem.cs" />
+    <Compile Include="Map.cs" />
+    <Compile Include="MapsWindow.Updater.cs" />
+    <Compile Include="MapsWindow.Synchronizer.cs" />
+    <Compile Include="MapsWindow.xaml.cs">
+      <DependentUpon>MapsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Screen.cs" />
     <Compile Include="ValueConverters.cs" />
+    <Compile Include="WebUtils.cs" />
     <Page Include="AdvancedDisplayWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -95,6 +105,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MapsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -141,6 +155,9 @@
   <ItemGroup>
     <Resource Include="Images\Vanilla.ico" />
     <Resource Include="Images\ZH.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ZH_Maps.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

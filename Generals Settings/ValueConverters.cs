@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Data;
+using System.Windows.Media;
 
-namespace Generals_Settings
+namespace Generals_Manager
 {
     public class BooleanConverter : IValueConverter
     {
@@ -16,6 +13,7 @@ namespace Generals_Settings
             {
                 case "true":
                     return true;
+
                 case "false":
                     return false;
             }
@@ -32,6 +30,34 @@ namespace Generals_Settings
                     return "false";
             }
             return "false";
+        }
+    }
+
+    public class BooleanToColorConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value is bool)
+            {
+                if ((bool)value == true)
+                    return new SolidColorBrush(Colors.Red);
+                else
+                    return new SolidColorBrush(Colors.Black);
+            }
+            return new SolidColorBrush(Colors.Black);
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value is SolidColorBrush)
+            {
+                SolidColorBrush brush = (SolidColorBrush)value;
+                return (brush.Color == Colors.Red);
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 
@@ -94,6 +120,7 @@ namespace Generals_Settings
             {
                 case "yes":
                     return true;
+
                 case "no":
                     return false;
             }
