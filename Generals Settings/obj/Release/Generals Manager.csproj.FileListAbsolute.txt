@@ -1,0 +1,19 @@
+D:\Programming\C#\Generals Settings\Generals Settings\bin\Release\Generals Manager.exe.config
+D:\Programming\C#\Generals Settings\Generals Settings\bin\Release\Generals Manager.exe
+D:\Programming\C#\Generals Settings\Generals Settings\bin\Release\Generals Manager.pdb
+D:\Programming\C#\Generals Settings\Generals Settings\obj\Release\AdvancedDisplayWindow.g.cs
+D:\Programming\C#\Generals Settings\Generals Settings\obj\Release\MainWindow.g.cs
+D:\Programming\C#\Generals Settings\Generals Settings\obj\Release\MapsWindow.g.cs
+D:\Programming\C#\Generals Settings\Generals Settings\obj\Release\App.g.cs
+D:\Programming\C#\Generals Settings\Generals Settings\obj\Release\GeneratedInternalTypeHelper.g.cs
+D:\Programming\C#\Generals Settings\Generals Settings\obj\Release\Generals Manager_MarkupCompile.cache
+D:\Programming\C#\Generals Settings\Generals Settings\obj\Release\Generals Manager_MarkupCompile.lref
+D:\Programming\C#\Generals Settings\Generals Settings\obj\Release\App.baml
+D:\Programming\C#\Generals Settings\Generals Settings\obj\Release\AdvancedDisplayWindow.baml
+D:\Programming\C#\Generals Settings\Generals Settings\obj\Release\MainWindow.baml
+D:\Programming\C#\Generals Settings\Generals Settings\obj\Release\MapsWindow.baml
+D:\Programming\C#\Generals Settings\Generals Settings\obj\Release\Generals Manager.g.resources
+D:\Programming\C#\Generals Settings\Generals Settings\obj\Release\Generals_Manager.Properties.Resources.resources
+D:\Programming\C#\Generals Settings\Generals Settings\obj\Release\Generals Manager.csproj.GenerateResource.Cache
+D:\Programming\C#\Generals Settings\Generals Settings\obj\Release\Generals Manager.exe
+D:\Programming\C#\Generals Settings\Generals Settings\obj\Release\Generals Manager.pdb

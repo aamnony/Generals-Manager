@@ -96,7 +96,7 @@ namespace Generals_Manager
             var ingameMaps = downloadedData[0];
             var badMaps = downloadedData[1];
 
-            var mapNames = Directory.GetDirectories(ALL_MAPS_PATH, "*", System.IO.SearchOption.TopDirectoryOnly);
+            var mapNames = Directory.GetDirectories(ALL_MAPS_PATH, "*", SearchOption.TopDirectoryOnly);
 
             var maps = new Map[mapNames.Length];
             for (int i = 0; i < maps.Length; i++)

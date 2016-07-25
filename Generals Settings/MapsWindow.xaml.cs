@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.IO;
 using System.Net;
 using System.Windows;
 
@@ -9,8 +10,7 @@ namespace Generals_Manager
     /// </summary>
     public partial class MapsWindow : Window
     {
-        private const string ALL_MAPS_PATH = /*Directory.GetCurrentDirectory().Replace('/', '\\')*/
-            @"D:\Programming\C#\Generals Maps\Generals Maps" + "\\Maps"; // Stupid M$...
+        private readonly string ALL_MAPS_PATH = Directory.GetCurrentDirectory().Replace('/', '\\') + "\\Maps"; // Stupid M$...
 
         public MapsWindow()
         {
@@ -31,7 +31,7 @@ namespace Generals_Manager
 
             chkShowCheckedOnly.IsChecked = null;
             workerDownload.RunWorkerAsync();
-            //workerSync.RunWorkerAsync();
+            workerSync.RunWorkerAsync();
         }
     }
 }
